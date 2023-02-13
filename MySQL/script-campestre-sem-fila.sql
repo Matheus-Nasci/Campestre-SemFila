@@ -13,6 +13,7 @@ create table pedido(
 	idPedido int primary key auto_increment,
     nomeCliente varchar(45),
     numeroFicha double,
+    dataHoraPedido DATETIME,
     fkProduto int,
 	foreign key (fkProduto) references produto
 );
