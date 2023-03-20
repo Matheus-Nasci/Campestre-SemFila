@@ -13,12 +13,10 @@ public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
-
-    private String nomeCliente;
     private int numeroFicha;
+    private String nomeCliente;
     private LocalDateTime dataHoraPedido;
-
+    private boolean recebido;
     @OneToOne
     private Produto produto;
 
