@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,7 +17,8 @@ public class Pedido {
     private int numeroFicha;
     private String nomeCliente;
     private LocalDateTime dataHoraPedido;
-    private boolean recebido;
+    @Enumerated(EnumType.STRING)
+    private StatusPedido statusPedido;
     @OneToOne
     private Produto produto;
 

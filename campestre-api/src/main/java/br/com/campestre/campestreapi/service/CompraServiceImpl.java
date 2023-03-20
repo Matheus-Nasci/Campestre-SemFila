@@ -23,6 +23,8 @@ public class CompraServiceImpl implements CompraService {
     @Override
     public void realizar(CompraRequest compraRequest) {
         //TODO implementar chamada ao serviço de emissão de nota não fiscal síncrono
+
+
         CompletableFuture<Void> completableFuture = CompletableFuture
                 .runAsync(() -> this.rabbitMQPublisherService.send(JsonExtensions.serializeToJson(compraRequest)));
 

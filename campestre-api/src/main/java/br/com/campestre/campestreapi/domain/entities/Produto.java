@@ -7,19 +7,24 @@ import javax.persistence.*;
 
 @Getter
 @Setter
+//@Embeddable
 @Entity
 public class Produto {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
     @Column(length = 45)
     private String nome;
     private Double valor;
     @Column(length = 45)
     private String tamanho;
-    @Enumerated(EnumType.STRING)
-    private StatusPedido statusPedido;
 
     public Produto() {}
+
+    public Produto(String nome, Double valor, String tamanho) {
+        this.nome = nome;
+        this.valor = valor;
+        this.tamanho = tamanho;
+    }
 }

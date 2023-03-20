@@ -22,7 +22,7 @@ spring:
     allow-bean-definition-overriding: true
 
 rabbitmq:
-  queue: EXCH_CAMPESTRE
+  queue: ${QUEUE_RABBITMQ}
   routingkey: ${ROUTING_KEY_RABBITMQ}
   exchange: ${EXCHANGE_RABBITMQ}
 # configuracoes rabbit
