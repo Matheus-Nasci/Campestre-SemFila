@@ -1,19 +1,20 @@
-import React, { Component } from 'react'; 
-import './App.css';
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  // Link
+} from "react-router-dom";
+import Pedidos from './pages/Pedidos/Pedidos';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/pedidos" component={Pedidos}></Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
