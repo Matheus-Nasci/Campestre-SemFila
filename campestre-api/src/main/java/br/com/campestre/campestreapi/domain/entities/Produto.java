@@ -18,6 +18,8 @@ public class Produto {
     private Double valor;
     @Column(length = 45)
     private String tamanho;
+    @Enumerated(EnumType.STRING)
+    private StatusPedido statusPedido;
 
     public Produto() {}
 }
