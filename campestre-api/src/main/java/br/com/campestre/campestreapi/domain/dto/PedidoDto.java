@@ -1,6 +1,6 @@
-package br.com.campestre.campestreapi.domain.entities.dto;
+package br.com.campestre.campestreapi.domain.dto;
 
-import br.com.campestre.campestreapi.domain.entities.Produto;
+import br.com.campestre.campestreapi.domain.Produto;
 import lombok.Getter;
 import lombok.Setter;
 
