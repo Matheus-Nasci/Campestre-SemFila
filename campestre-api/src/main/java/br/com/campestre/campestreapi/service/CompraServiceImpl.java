@@ -52,7 +52,7 @@ public class CompraServiceImpl implements CompraService {
         var fochas = this.pedidoRepositorio.obterNumerosFichas();
 
         var listaCompras = new ArrayList<ComprasDto>();
-        
+
         for (var ficha : fochas) {
             Collection<Pedido> pedidos = pedidoRepositorio.findAllByNumeroFicha(ficha);
             var pedido = pedidos.stream().findFirst().get();
