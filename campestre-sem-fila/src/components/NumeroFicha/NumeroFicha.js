@@ -1,8 +1,8 @@
 import Title from './index';
 
-function NumeroFicha({numeroFicha, status}) {
+function NumeroFicha({numeroFicha, status, tamanho}) {
     return (
-        <Title status={status}>{numeroFicha}</ Title>
+        <Title status={status} tamanho={tamanho}>{numeroFicha}</ Title>
     )
 }
 

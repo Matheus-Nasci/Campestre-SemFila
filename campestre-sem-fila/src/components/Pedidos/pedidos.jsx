@@ -59,4 +59,29 @@ const TitlePedidoPronto = styled.h1`
     padding: 2% 0;  
 `
 
-export { Content, PedidosComponent, FotoAperetiva, Header, NumerosPedidos, PedidosPreparando, PedidosProntos, TitlePedidoPreparando, TitlePedidoPronto }
+const ListaNumerosPreparo = styled.ul`
+    column-count: 2;
+    list-style: none;
+`
+const ListaNumerosPronto = styled.ul`
+    column-count: 2;
+    column-width: 300px;
+    list-style: none;
+    li {
+        margin-top: -1rem;
+    }
+`
+
+
+
+export { Content, 
+PedidosComponent, 
+FotoAperetiva, 
+Header, 
+NumerosPedidos, 
+PedidosPreparando, 
+PedidosProntos, 
+TitlePedidoPreparando, 
+TitlePedidoPronto, 
+ListaNumerosPreparo, 
+ListaNumerosPronto }
