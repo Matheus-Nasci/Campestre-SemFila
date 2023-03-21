@@ -25,9 +25,8 @@ public class Pedido {
 
     public Pedido() {}
 
-    public      Pedido(String nomeCliente, StatusPedido statusPedido, Produto produto, LocalDateTime dataHoraPedido, Integer numeroFicha) {
+    public Pedido(String nomeCliente, StatusPedido statusPedido, Produto produto, LocalDateTime dataHoraPedido, Integer numeroFicha) {
         this.nomeCliente = nomeCliente;
-        this.dataHoraPedido = LocalDateTime.now();
         this.dataHoraPedido = dataHoraPedido;
         this.statusPedido = statusPedido;
         this.produto = produto;
