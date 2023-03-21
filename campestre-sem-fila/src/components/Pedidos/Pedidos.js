@@ -19,13 +19,13 @@ function ListaPedidos() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      axios.get('http://localhost:8080/campestre-sem-fila/api/v1/pedidos/prontos')
+      axios.get('http://192.168.0.108:8080/campestre-sem-fila/api/v1/pedidos/prontos')
         .then(response => setPedidosProntos(response.data))
         .catch(error => console.error(error));
 
-      axios.get('http://localhost:8080/campestre-sem-fila/api/v1/pedidos/preparando')
+      axios.get('http://192.168.0.108:8080/campestre-sem-fila/api/v1/pedidos/preparando')
         .then(response => setPedidosPreparando(response.data))
-        .catch(error => console.log(error))
+        .catch(error => console.error(error))
 
     }, 1000)
 
@@ -34,7 +34,6 @@ function ListaPedidos() {
 
   useEffect(() => {
     if (pedidosPreparando.data && pedidosPreparando.data.length > 0) {
-      console.log(pedidosPreparando)
       const listItemsPreparing = pedidosPreparando.data.map((pedido) =>
         <li>
           <NumeroFicha numeroFicha={pedido.numeroFicha} status={pedido.statusPedido} />

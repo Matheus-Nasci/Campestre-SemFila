@@ -6,6 +6,7 @@ const Content = styled.div`
     display: flex;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 `
 
 const PedidosComponent = styled.div`
