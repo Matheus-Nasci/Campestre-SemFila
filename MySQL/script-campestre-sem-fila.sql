@@ -10,9 +10,10 @@ create table produto(
 );
 
 create table pedido(
-	idPedido int primary key auto_increment,
+	numeroFicha int primary key auto_increment,
     nomeCliente varchar(45),
-    numeroFicha double,
+    dataHoraPedido DATETIME,
+    recebido boolean,
     fkProduto int,
 	foreign key (fkProduto) references produto
 );

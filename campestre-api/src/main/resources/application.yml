@@ -1,0 +1,18 @@
+server:
+  servlet:
+    context-path: /campestre-sem-fila/api/v1
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/${NAME_DATABASE}
+    username: ${CAMPESTRE_SEM_FILA_USERNAME_DB}
+    password: ${CAMPESTRE_SEM_FILA_PASSWORD_DB}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  main:
+    allow-bean-definition-overriding: true
+
