@@ -4,7 +4,7 @@ import Item from "./index";
 function ItemMenu({ icone, texto, src, selecionado }) {
 
     const handleClick = () => {
-        window.location.href = `http://localhost:3000/${src}`;
+        window.location.href = `http://192.168.0.108:3000/${src}`;
     };
 
     return (
