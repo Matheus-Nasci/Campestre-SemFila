@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Menu from "../../components/Menu/Menu";
 
-class Pedidos extends Component {
+class Vendas extends Component {
     render() {
         return (
             <>
-            <Menu paginaSelecionada={"Pedidos"}/>
+            <Menu paginaSelecionada={"Vendas"}/>
             </>
         )
     }
 }
 
-export default Pedidos;
+export default Vendas;
