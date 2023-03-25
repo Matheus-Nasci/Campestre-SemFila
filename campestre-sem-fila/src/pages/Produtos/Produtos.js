@@ -4,6 +4,9 @@ import { Container } from "./index";
 import ProdutosComponent from "../../components/ProdutosComponent/ProdutosComponent";
 
 class Produtos extends Component {
+    componentDidMount() {
+        document.title = "Produtos";
+    }
     render() {
         return (
             <>

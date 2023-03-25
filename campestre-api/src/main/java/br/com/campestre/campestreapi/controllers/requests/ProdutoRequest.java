@@ -16,7 +16,6 @@ public class ProdutoRequest {
     private String nome;
     private Double valor;
     private String tamanho;
-    private MultipartFile imagem;
 
     public Produto toDomain() {
         return new Produto(nome, valor, tamanho);

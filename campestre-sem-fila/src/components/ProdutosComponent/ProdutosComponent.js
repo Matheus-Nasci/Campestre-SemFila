@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CardProduto from "../CardProduto/CardProduto";
 import { HeaderContent, ContentPrincipal, Content, CardContainer } from "./index";
 import axios from "axios";
-import Modal from "../ModalComponent/Modal";
+import ModalAdicionarProduto from '../ModalAdicionarProduto/ModalAdicionarProduto'
 
 function ProdutosComponent() {
 
@@ -44,7 +44,7 @@ function ProdutosComponent() {
                 >
                     Adicionar Produto
                 </button>
-            {modalOpen && <Modal setOpenModal={closeModal} />}
+            {modalOpen && <ModalAdicionarProduto setOpenModal={closeModal} />}
         </Content>
     );
 }

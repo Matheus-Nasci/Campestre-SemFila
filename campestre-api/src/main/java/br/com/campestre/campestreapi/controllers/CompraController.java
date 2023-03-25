@@ -1,9 +1,11 @@
 package br.com.campestre.campestreapi.controllers;
 
+import br.com.campestre.campestreapi.controllers.requests.AtualizarStatusPedido;
 import br.com.campestre.campestreapi.controllers.requests.CompraRequest;
 import br.com.campestre.campestreapi.domain.entities.StatusPedido;
 import br.com.campestre.campestreapi.domain.service.CompraService;
 import br.com.campestre.campestreapi.framework.SingleResponse;
+import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,9 +58,9 @@ public class CompraController {
         return ResponseEntity.status(200).body(new SingleResponse<>(listaCompras));
     }
 
-    @PutMapping("/{numeroFicha}")
-    public ResponseEntity atualizarStatusPedido(@PathParam("status") StatusPedido statusPedido, @PathVariable Integer numeroFicha) {
-        this.compraService.atualizarPedido(statusPedido, numeroFicha);
+    @PutMapping()
+    public ResponseEntity atualizarStatusPedido(@RequestBody AtualizarStatusPedido atualizarStatusPedido) {
+        this.compraService.atualizarPedido(StatusPedido.valueOf(atualizarStatusPedido.getStatus()), atualizarStatusPedido.getNumeroFicha());
         return ResponseEntity.status(200).build();
     }
 
