@@ -5,7 +5,9 @@ import br.com.campestre.campestreapi.domain.entities.Produto;
 import br.com.campestre.campestreapi.domain.repository.ProdutoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -20,9 +22,15 @@ public class ProdutoServiceImpl implements br.com.campestre.campestreapi.domain.
     }
 
     @Override
-    public Produto incluir(ProdutoRequest produtoRequest) {
-        var product = this.produtoRepositorio.save(produtoRequest.toDomain());
-        return product;
+    public Produto incluir(ProdutoRequest produtoRequest, MultipartFile multipartFile) {
+        var productDomain = produtoRequest.toDomain();
+        try {
+            productDomain.setImagem(multipartFile.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return this.produtoRepositorio.save(productDomain);
     }
 
     @Override
