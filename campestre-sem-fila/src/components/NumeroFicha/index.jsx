@@ -5,6 +5,7 @@ const TitlePreparando = css`
 `
 
 const TitlePronto = css`
+    color: green;
     font-size: 6rem;
 `
 

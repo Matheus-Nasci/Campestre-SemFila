@@ -1,4 +1,4 @@
-package br.com.campestre.campestreapi.domain.entities;
+package br.com.campestre.campestreapi.domain;
 
 public enum StatusPedido {
     PREPARANDO,

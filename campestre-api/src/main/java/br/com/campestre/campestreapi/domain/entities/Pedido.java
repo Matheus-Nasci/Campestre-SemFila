@@ -1,11 +1,12 @@
 package br.com.campestre.campestreapi.domain.entities;
 
 import javax.persistence.*;
+
+import br.com.campestre.campestreapi.domain.StatusPedido;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter

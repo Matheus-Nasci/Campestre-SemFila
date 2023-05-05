@@ -1,7 +1,7 @@
 package br.com.campestre.campestreapi.domain.repository;
 
 import br.com.campestre.campestreapi.domain.entities.Pedido;
-import br.com.campestre.campestreapi.domain.entities.StatusPedido;
+import br.com.campestre.campestreapi.domain.StatusPedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

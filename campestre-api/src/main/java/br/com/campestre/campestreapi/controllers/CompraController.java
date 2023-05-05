@@ -2,17 +2,12 @@ package br.com.campestre.campestreapi.controllers;
 
 import br.com.campestre.campestreapi.controllers.requests.AtualizarStatusPedido;
 import br.com.campestre.campestreapi.controllers.requests.CompraRequest;
-import br.com.campestre.campestreapi.domain.entities.StatusPedido;
+import br.com.campestre.campestreapi.domain.StatusPedido;
 import br.com.campestre.campestreapi.domain.service.CompraService;
 import br.com.campestre.campestreapi.framework.SingleResponse;
-import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.websocket.server.PathParam;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/pedidos")

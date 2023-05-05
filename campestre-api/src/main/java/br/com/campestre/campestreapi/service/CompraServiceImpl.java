@@ -3,7 +3,7 @@ package br.com.campestre.campestreapi.service;
 import br.com.campestre.campestreapi.controllers.requests.CompraRequest;
 import br.com.campestre.campestreapi.domain.dto.ComprasDto;
 import br.com.campestre.campestreapi.domain.entities.Pedido;
-import br.com.campestre.campestreapi.domain.entities.StatusPedido;
+import br.com.campestre.campestreapi.domain.StatusPedido;
 import br.com.campestre.campestreapi.domain.repository.PedidoRepositorio;
 import br.com.campestre.campestreapi.domain.repository.ProdutoRepositorio;
 import br.com.campestre.campestreapi.domain.service.CompraService;
