@@ -1,13 +1,17 @@
-import React, { useState, useEffect, Component } from 'react';
-import ListaPedidos from '../../components/Pedidos/Pedidos'
-
+import React, { Component } from "react";
+import Menu from "../../components/Menu/Menu";
 
 class Pedidos extends Component {
-  render() {
-    return (
-      <ListaPedidos />
-    );
-  }
+    componentDidMount() {
+        document.title = "Fila Pedidos";
+    }
+    render() {
+        return (
+            <>
+            <Menu paginaSelecionada={"Pedidos"}/>
+            </>
+        )
+    }
 }
 
 export default Pedidos;

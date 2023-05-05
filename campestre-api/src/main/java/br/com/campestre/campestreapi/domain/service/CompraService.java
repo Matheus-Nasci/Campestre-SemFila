@@ -2,7 +2,7 @@ package br.com.campestre.campestreapi.domain.service;
 
 import br.com.campestre.campestreapi.controllers.requests.CompraRequest;
 import br.com.campestre.campestreapi.domain.dto.ComprasDto;
-import br.com.campestre.campestreapi.domain.entities.StatusPedido;
+import br.com.campestre.campestreapi.domain.StatusPedido;
 
 import java.util.Collection;
 
