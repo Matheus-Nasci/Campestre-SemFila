@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   TitlePedidoPreparando, ListaNumerosPreparo, ListaNumerosPronto,
   TitlePedidoPronto,
@@ -8,7 +8,6 @@ import {
 } from './pedidos';
 import Acai from '../../assets/images/acai.png';
 import NumeroFicha from '../../components/NumeroFicha/NumeroFicha';
-import axios from 'axios';
 import api from '../api/api';
 
 function ListaPedidos() {
