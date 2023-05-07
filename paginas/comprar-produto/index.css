@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f1f5;
+}
+
+.container {
+  display: flex;
+}
+
+.produtos {
+  height: 100vh;
+  width: 100vh;
+}
+
+.container-produtos {
+  width: 87%;
+  margin: 0 auto;
+}
+
+.container-produtos h1 {
+  margin-top: 2%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 44px;
+}
+
+.container-produtos .form {
+  margin-top: 2%;
+}
+
+.container-produtos .form input {
+  font-size: 20px;
+  width: 70%;
+  font-weight: 400;
+  margin-top: 2%;
+  text-indent: 5%;
+  height: 59px;
+  border: 1px none;
+  border-radius: 30px;
+  box-shadow: 0px 10px 100px 53px rgba(0, 0, 0, 0.1);
+}
+
+.container-produtos .form input:focus {
+  outline: none;
+}
+
+.container-produtos .cards-produtos {
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+}
+
+.container-produtos .cards-produtos .card {
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  width: 116px;
+  background-color: white;
+  transition: transform 0.2s ease-in-out;
+}
+
+.container-produtos .cards-produtos .card:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.container-produtos .cards-produtos .card img {
+  height: 120%;
+  border-radius: 8px;
+}
+
+.container-produtos .cards-produtos .card span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+#preco-produto {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #7a8098;
+}
+
+.resumo-compras {
+  height: 100vh;
+  width: 100vh;
+}
+
+.container-resumo {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-resumo .content {
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0px 10px 100px 53px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 86%;
+  margin-top: 4%;
+  border-radius: 20px;
+}
+
+.container-resumo .content .container {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 2%;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.container-resumo .content .container .header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-resumo .content .container .header #titulo {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 44px;
+}
+
+.container-resumo .content .container .header #contagem-produtos {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 25px;
+}
+
+.container-resumo .content .container .itens {
+  margin-top: 4%;
+  width: 100%;
+  height: 88%;
+  overflow: auto;
+}
+
+.container-resumo .content .container .itens .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4%;
+}
+
+.container-resumo .content .container .itens .item .descricao {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-resumo .content .container .itens .item .descricao #nome-produto {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.container-resumo .content .container .itens .item .preco-item #preco-total {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  display: flex;
+}
+
+#btn-pagamento {
+  margin-top: 2%;
+  background: #2585b2;
+  border: none;
+  border-radius: 30px;
+  display: flex;
+  height: 59px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#btn-pagamento span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+  color: white;
+}
+
+#btn-pagamento span:first-child {
+  margin-left: 5%;
+}
+
+#btn-pagamento span:last-child {
+  font-style: normal;
+  font-weight: 600;
+  margin-right: 5%;
+}
