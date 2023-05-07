@@ -5,7 +5,7 @@
 *.iws
 *.log
 /out/
-*/target/
+*/target/classes*
 /cache/
 /.idea_modules/
 /*/target/

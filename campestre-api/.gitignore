@@ -31,3 +31,19 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Arquivos Intellij IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+/out/
+*/target/classes*
+/cache/
+/.idea_modules/
+/*/target/
+/*/*/target/
+/*/*/*/target/
+/*/*/*/*/target/
+/*/*/*/*/*/target/
