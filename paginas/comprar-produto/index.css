@@ -4,6 +4,31 @@
   font-family: "Open Sans", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+  height: 8; /* Altura da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Cor do indicador de rolagem */
+  border-radius: 8px; /* Borda arredondada do indicador de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Cor de fundo da barra de rolagem */
+  border-radius: 8px; /* Borda arredondada da barra de rolagem */
+}
+
+::-webkit-scrollbar-button {
+  display: none; /* Esconder os botões da barra de rolagem */
+}
+
+/* Adicionar margem à esquerda da barra de rolagem */
+::-webkit-scrollbar {
+  margin-left: 20px;
+}
+
+
 body {
   width: 100%;
   height: 100%;
@@ -130,7 +155,7 @@ body {
 }
 
 .container-resumo .content .container .header {
-  width: 100%;
+  width: 96%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -152,10 +177,12 @@ body {
 }
 
 .container-resumo .content .container .itens {
+  margin: 0 auto;
   margin-top: 4%;
-  width: 100%;
+  width: 90%;
   height: 88%;
   overflow: auto;
+  padding-right: 3%;
 }
 
 .container-resumo .content .container .itens .item {
