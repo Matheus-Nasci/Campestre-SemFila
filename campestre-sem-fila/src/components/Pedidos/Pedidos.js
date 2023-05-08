@@ -27,7 +27,7 @@ function ListaPedidos() {
         .then(response => setPedidosPreparando(response.data))
         .catch(error => console.error(error))
 
-    }, 1000)
+    }, 3000)
 
     return () => clearInterval(intervalId);
   }, [])
