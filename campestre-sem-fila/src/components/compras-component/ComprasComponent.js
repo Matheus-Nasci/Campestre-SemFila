@@ -35,7 +35,7 @@ const ComprasComponent = () => {
         .catch((error) => console.error(error));
     }
     setStatus("idle");
-  }, [listaProdutos]);
+  }, [listaProdutos, status]);
 
   const itens = resumoProdutos.reduce((acc, itemNovo) => {
     if (!acc.hasOwnProperty(itemNovo.nome)) {
@@ -107,6 +107,7 @@ const ComprasComponent = () => {
                     nomeProduto={item.nome}
                     precoProduto={item.preco}
                     quantidade={item.quantidade}
+                    handleClick={setResumoProdutos}
                   />
                 ))}
               </Itens>

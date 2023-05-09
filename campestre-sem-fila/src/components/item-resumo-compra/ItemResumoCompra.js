@@ -7,8 +7,9 @@ import {
   PrecoTotalSpan,
   DivItem,
 } from ".";
+import { Trash } from "react-bootstrap-icons";
 
-const ItemResumoCompra = ({ nomeProduto, precoProduto, quantidade }) => {
+const ItemResumoCompra = ({ nomeProduto, precoProduto, quantidade, handleClick }) => {
 
   const valorFormatado = `${precoProduto.toLocaleString("pt-BR", {
     style: "currency",
@@ -20,16 +21,27 @@ const ItemResumoCompra = ({ nomeProduto, precoProduto, quantidade }) => {
     currency: "BRL",
   })}`;
 
+  const handleRemoveItemByName = () => {
+    handleClick(oldArray => {
+      const index = oldArray.findIndex(item => item.nome === nomeProduto);
+      if (index !== -1) {
+        oldArray.splice(index, 1);
+      }
+      return [...oldArray];
+    });
+  };
+  
+
   const quantidadeTotal = `${quantidade}X`
 
   return (
     <DivItem>
       <DescricaoItem>
-        <NomeProduto>{nomeProduto}</NomeProduto>
+        <NomeProduto>{nomeProduto} <Trash size={20} color="red" style={{cursor: "pointer"}} onClick={handleRemoveItemByName}/></NomeProduto>
         <PrecoProduto>{quantidadeTotal} {valorFormatado}</PrecoProduto>
       </DescricaoItem>
       <PrecoTotalDiv>
-        <PrecoTotalSpan>{valorTotal}</PrecoTotalSpan>
+        <PrecoTotalSpan> {valorTotal}</PrecoTotalSpan>
       </PrecoTotalDiv>
     </DivItem>
   );

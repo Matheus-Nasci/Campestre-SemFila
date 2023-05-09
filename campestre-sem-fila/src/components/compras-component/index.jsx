@@ -117,7 +117,7 @@ const BtnPagamento = styled.div`
 const Itens = styled.div`
   margin: 0 auto;
   margin-top: 4%;
-  width: 90%;
+  width: 96%;
   height: 88%;
   overflow: auto;
   padding-right: 3%;

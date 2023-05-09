@@ -37,6 +37,7 @@ const PrecoProduto = styled.span`
   font-size: 16px;
   line-height: 22px;
   color: #7a8098;
+
 `;
 
 export { Card, TituloProduto, PrecoProduto, ImageProduto };

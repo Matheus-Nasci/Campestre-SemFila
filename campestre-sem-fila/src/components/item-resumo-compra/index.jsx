@@ -16,7 +16,7 @@ const DescricaoItem = styled.div`
 const NomeProduto = styled.span`
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 27px;
 `;
 
@@ -28,14 +28,19 @@ const PrecoProduto = styled.span`
   color: #7a8098;
 `;
 
-const PrecoTotalDiv = styled.div``;
+const PrecoTotalDiv = styled.div`
+  
+`;
 
 const PrecoTotalSpan = styled.span`
+  display: flex;
+  margin-right: 1%;
+  align-items: center;
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 22px;
-  color: #7a8098;
+  color: black;
+  font-weight: bold;
 `;
 
 export {
