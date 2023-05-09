@@ -19,6 +19,7 @@ import ItemResumoCompra from "../item-resumo-compra/ItemResumoCompra";
 import api from "../api/api";
 
 const ComprasComponent = () => {
+  const [nomeUsuario, setNomeUsuario] = useState("");
   const [listaProdutos, setListaProdutos] = useState({});
   const [resumoProdutos, setResumoProdutos] = useState([]);
   const [status, setStatus] = useState("idle");
@@ -37,18 +38,25 @@ const ComprasComponent = () => {
     setStatus("idle");
   }, [listaProdutos, status]);
 
+  const handleSubmit = (event) => {
+    
+    console.log(nomeUsuario, itens)
+  };
+
   const itens = resumoProdutos.reduce((acc, itemNovo) => {
     if (!acc.hasOwnProperty(itemNovo.nome)) {
       acc[itemNovo.nome] = {
         preco: itemNovo.preco,
         quantidade: itemNovo.quantidade,
         nome: itemNovo.nome,
+        id: itemNovo.id,
       };
     } else {
       acc[itemNovo.nome] = {
         preco: itemNovo.preco,
         quantidade: acc[itemNovo.nome].quantidade + 1,
         nome: itemNovo.nome,
+        id: itemNovo.id,
       };
     }
 
@@ -56,9 +64,9 @@ const ComprasComponent = () => {
   }, {});
 
   const valorTotal = Object.values(itens).reduce((acc, itemNovo) => {
-    acc = itemNovo.quantidade * itemNovo.preco + acc
-    return acc
-  }, 0)
+    acc = itemNovo.quantidade * itemNovo.preco + acc;
+    return acc;
+  }, 0);
 
   const valorFormatado = `${valorTotal.toLocaleString("pt-BR", {
     style: "currency",
@@ -74,8 +82,12 @@ const ComprasComponent = () => {
           <ContainerProdutos>
             <h1>Vendas</h1>
             <Form>
-              <input type="text" placeholder="Nome do cliente"></input>
-              <input type="text" placeholder="Busque um Produto"></input>
+              <input
+                type="text"
+                placeholder="Nome do cliente"
+                onChange={(event) => setNomeUsuario(event.target.value)}
+              />
+              <input type="text" placeholder="Busque um Produto" />
             </Form>
             <CardProdutos>
               {listaProdutos.data &&
@@ -98,22 +110,22 @@ const ComprasComponent = () => {
               <ContainerContent>
                 <HeaderResumoCompra
                   key="Resumo"
-                  contagemItens={Object.keys(itens).length  }
+                  contagemItens={Object.keys(itens).length}
                 />
                 <Itens>
-                {Object.values(itens).map((item) => (
-                  // console.log(item)
-                  <ItemResumoCompra
-                    nomeProduto={item.nome}
-                    precoProduto={item.preco}
-                    quantidade={item.quantidade}
-                    handleClick={setResumoProdutos}
-                  />
-                ))}
-              </Itens>
+                  {Object.values(itens).map((item) => (
+                    // console.log(item)
+                    <ItemResumoCompra
+                      nomeProduto={item.nome}
+                      precoProduto={item.preco}
+                      quantidade={item.quantidade}
+                      handleClick={setResumoProdutos}
+                    />
+                  ))}
+                </Itens>
               </ContainerContent>
             </ContentResumos>
-            <BtnPagamento>
+            <BtnPagamento onClick={handleSubmit}>
               <span>Pagamento</span>
               <span>{valorFormatado}</span>
             </BtnPagamento>
