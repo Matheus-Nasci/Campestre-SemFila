@@ -52,7 +52,7 @@ const CardProdutos = styled.div`
   margin-top: 5%;
   display: flex;
   flex-direction: row;
-  margin-left: 10%;
+  margin-left: 3%;
 `;
 
 const ResumoCompras = styled.div`
@@ -114,6 +114,15 @@ const BtnPagamento = styled.div`
   }
 `;
 
+const Itens = styled.div`
+  margin: 0 auto;
+  margin-top: 4%;
+  width: 90%;
+  height: 88%;
+  overflow: auto;
+  padding-right: 3%;
+`;
+
 export {
   Body,
   Container,
@@ -125,5 +134,6 @@ export {
   ContainerResumoCompras,
   ContentResumos,
   ContainerContent,
-  BtnPagamento
+  BtnPagamento,
+  Itens
 };

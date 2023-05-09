@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  margin-right: 10%;
+  cursor: pointer;
+  margin-right: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;

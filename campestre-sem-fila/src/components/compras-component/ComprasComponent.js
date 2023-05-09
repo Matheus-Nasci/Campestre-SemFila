@@ -11,27 +11,64 @@ import {
   ContentResumos,
   ResumoCompras,
   BtnPagamento,
+  Itens,
 } from ".";
 import CardProdutoVenda from "../cards-produtos-vendas/CardProdutoVenda";
 import HeaderResumoCompra from "../header-resumo-compra/HeaderResumoCompra";
+import ItemResumoCompra from "../item-resumo-compra/ItemResumoCompra";
 import api from "../api/api";
 
 const ComprasComponent = () => {
   const [contagemItens, setContagemItens] = useState(0);
   const [listaProdutos, setListaProdutos] = useState({});
+  const [resumoProdutos, setResumoProdutos] = useState([]);
+  const [status, setStatus] = useState("idle");
 
   useEffect(() => {
-    api
-      .get("/produtos")
-      .then((response) => setListaProdutos(response.data))
-      .catch((error) => console.error(error));
-
-    setContagemItens(listaProdutos?.length);
+    if (status === "idle") {
+      setStatus("loading");
+      api
+        .get("/produtos")
+        .then((response) => {
+          setStatus("loaded");
+          setListaProdutos(response.data);
+        })
+        .catch((error) => console.error(error));
+    }
+    setStatus("idle");
   }, [listaProdutos]);
 
-  console.log(listaProdutos);
+  const itens = resumoProdutos.reduce((acc, itemNovo) => {
+    if (!acc.hasOwnProperty(itemNovo.nome)) {
+      acc[itemNovo.nome] = {
+        preco: itemNovo.preco,
+        quantidade: itemNovo.quantidade,
+        nome: itemNovo.nome,
+      };
+    } else {
+      acc[itemNovo.nome] = {
+        preco: itemNovo.preco,
+        quantidade: acc[itemNovo.nome].quantidade + 1,
+        nome: itemNovo.nome,
+      };
+    }
 
-  return (
+    return acc;
+  }, {});
+
+  const valorTotal = Object.values(itens).reduce((acc, itemNovo) => {
+    acc = itemNovo.quantidade * itemNovo.preco + acc
+    return acc
+  }, 0)
+
+  const valorFormatado = `${valorTotal.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  })}`;
+
+  return status === "loading" ? (
+    <div>loading....</div>
+  ) : (
     <Body>
       <Container>
         <Produtos>
@@ -42,14 +79,17 @@ const ComprasComponent = () => {
               <input type="text" placeholder="Busque um Produto"></input>
             </Form>
             <CardProdutos>
-              {listaProdutos.data.map((produto) => {
-                return <CardProdutoVenda image={produto.imagem} preco={produto.valor} titulo={produto.nome} />
-              })}
-              <CardProdutoVenda
-                image="https://i0.wp.com/anamariabraga.globo.com/wp-content/uploads/2019/12/pastel-de-feira.jpg?fit=1200%2C675&ssl=1"
-                preco={10}
-                titulo="Pastel"
-              />
+              {listaProdutos.data &&
+                listaProdutos.data.map((produto) => {
+                  return (
+                    <CardProdutoVenda
+                      image={produto.imagem}
+                      preco={produto.valor}
+                      titulo={produto.nome}
+                      handleClick={setResumoProdutos}
+                    />
+                  );
+                })}
             </CardProdutos>
           </ContainerProdutos>
         </Produtos>
@@ -59,13 +99,23 @@ const ComprasComponent = () => {
               <ContainerContent>
                 <HeaderResumoCompra
                   key="Resumo"
-                  contagemItens={contagemItens}
+                  contagemItens={Object.keys(itens).length  }
                 />
+                <Itens>
+                {Object.values(itens).map((item) => (
+                  // console.log(item)
+                  <ItemResumoCompra
+                    nomeProduto={item.nome}
+                    precoProduto={item.preco}
+                    quantidade={item.quantidade}
+                  />
+                ))}
+              </Itens>
               </ContainerContent>
             </ContentResumos>
             <BtnPagamento>
               <span>Pagamento</span>
-              <span>R$ 0,00</span>
+              <span>{valorFormatado}</span>
             </BtnPagamento>
           </ContainerResumoCompras>
         </ResumoCompras>
