@@ -19,7 +19,6 @@ import ItemResumoCompra from "../item-resumo-compra/ItemResumoCompra";
 import api from "../api/api";
 
 const ComprasComponent = () => {
-  const [contagemItens, setContagemItens] = useState(0);
   const [listaProdutos, setListaProdutos] = useState({});
   const [resumoProdutos, setResumoProdutos] = useState([]);
   const [status, setStatus] = useState("idle");
