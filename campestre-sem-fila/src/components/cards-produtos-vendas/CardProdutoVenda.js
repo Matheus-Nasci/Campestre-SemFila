@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, PrecoProduto, TituloProduto, ImageProduto } from ".";
 
-const CardProdutoVenda = ({ image, titulo, preco, handleClick, quantity }) => {
+const CardProdutoVenda = ({ image, titulo, preco, handleClick }) => {
   const valorFormatado = `${preco.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
