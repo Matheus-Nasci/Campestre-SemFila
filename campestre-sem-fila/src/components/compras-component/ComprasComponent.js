@@ -16,6 +16,8 @@ import {
 import CardProdutoVenda from "../cards-produtos-vendas/CardProdutoVenda";
 import HeaderResumoCompra from "../header-resumo-compra/HeaderResumoCompra";
 import ItemResumoCompra from "../item-resumo-compra/ItemResumoCompra";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import api from "../api/api";
 
 const ComprasComponent = () => {
@@ -36,11 +38,37 @@ const ComprasComponent = () => {
         .catch((error) => console.error(error));
     }
     setStatus("idle");
-  }, [listaProdutos, status]);
+  }, [listaProdutos]);
 
   const handleSubmit = (event) => {
-    
-    console.log(nomeUsuario, itens)
+
+    let arrayProdutos = []
+
+    const produtos = Object.values(itens).forEach((item) => {
+      for (let i = 0; i <= item.quantidade; i++) {
+        arrayProdutos.push({
+          idProduto: item.id
+        })
+      }
+    })
+
+    const payload = {
+      pedido: {
+        nomeCliente: nomeUsuario,
+        produtos: arrayProdutos
+      }
+    }
+
+    console.log(payload)
+
+
+    api.post("/pedidos", payload)
+      .then(response => {
+        toast.success("Pedido efetuado com sucesso!")        
+      }).catch(error => {
+        console.log(error)
+        toast.error("Pedido não efetuado.")
+      })
   };
 
   const itens = resumoProdutos.reduce((acc, itemNovo) => {
@@ -49,14 +77,14 @@ const ComprasComponent = () => {
         preco: itemNovo.preco,
         quantidade: itemNovo.quantidade,
         nome: itemNovo.nome,
-        id: itemNovo.id,
+        id: itemNovo.idProduto,
       };
     } else {
       acc[itemNovo.nome] = {
         preco: itemNovo.preco,
         quantidade: acc[itemNovo.nome].quantidade + 1,
         nome: itemNovo.nome,
-        id: itemNovo.id,
+        id: itemNovo.idProduto,
       };
     }
 
@@ -97,6 +125,7 @@ const ComprasComponent = () => {
                       image={produto.imagem}
                       preco={produto.valor}
                       titulo={produto.nome}
+                      idProduto={produto.id}
                       handleClick={setResumoProdutos}
                     />
                   );
@@ -114,7 +143,6 @@ const ComprasComponent = () => {
                 />
                 <Itens>
                   {Object.values(itens).map((item) => (
-                    // console.log(item)
                     <ItemResumoCompra
                       nomeProduto={item.nome}
                       precoProduto={item.preco}
@@ -129,6 +157,7 @@ const ComprasComponent = () => {
               <span>Pagamento</span>
               <span>{valorFormatado}</span>
             </BtnPagamento>
+            <ToastContainer />
           </ContainerResumoCompras>
         </ResumoCompras>
       </Container>
