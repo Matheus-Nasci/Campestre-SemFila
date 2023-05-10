@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Pedidos = styled.div`
-  margin-top: 30%;
+  margin-left: 2%;
   width: 100%;
   height: 100%;
   display: flex;
