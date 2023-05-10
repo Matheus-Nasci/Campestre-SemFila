@@ -44,7 +44,7 @@ const ComprasComponent = () => {
 
     let arrayProdutos = []
 
-    const produtos = Object.values(itens).forEach((item) => {
+    Object.values(itens).forEach((item) => {
       for (let i = 0; i <= item.quantidade; i++) {
         arrayProdutos.push({
           idProduto: item.id

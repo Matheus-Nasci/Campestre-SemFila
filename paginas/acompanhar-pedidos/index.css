@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f1f5;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  margin-top: 4%;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.pedidos {
+  margin-top: 2%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pedido {
+  margin-bottom: 3%;
+  background-color: white;
+  width: 90%;
+  height: 235px;
+  display: flex;
+  border-radius: 8px;
+  flex-direction: row;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.pedidos .pedido .info {
+  /* margin-top: 1%; */
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column !important;
+  text-indent: 17px;
+}
+
+#nome-user {
+  margin-top: 4%;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 27px;
+}
+
+#data-pedido {
+  margin-top: 5%;
+  font-size: 20px;
+  line-height: 16px;
+  color: #7a8098;
+}
+
+#status-pedido {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 14px;
+  text-indent: 0px;
+  padding: 1% 0;
+  color: #000000;
+  margin-top: 4%;
+  margin-left: 4%;
+  text-align: center;
+  background: #02ff0c;
+  border-radius: 4px;
+  width: 166px;
+}
+
+#title-ficha {
+  margin-top: 4%;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 14px;
+}
+
+#numero-ficha {
+  margin-top: 7%;
+  font-weight: bold;
+  font-size: 90px;
+  line-height: 44px;
+}
+
+.pedidos .pedido .produto-pedido {
+  margin-right: 2%;
+  width: 20%;
+  margin-top: 11px;
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  border-radius: 0px 8px 8px 0px;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+}
+
+.produto-pedido .info-produto {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  text-align: left;
+  flex-direction: column;
+  width: 40%;
+  height: 100%;
+}
+
+.produto-pedido .info-produto span {
+  margin-left: 10%;
+}
+
+#nome-produto {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#tamanho-produto {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 19px;
+}
+
+.pedido .produto-pedido .image {
+  width: 60%;
+  height: 100%;
+}
+
+.pedido .produto-pedido .image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 8px 8px 0px;
+}
