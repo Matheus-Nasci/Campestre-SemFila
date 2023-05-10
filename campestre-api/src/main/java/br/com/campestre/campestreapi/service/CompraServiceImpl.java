@@ -4,6 +4,7 @@ import br.com.campestre.campestreapi.controllers.requests.CompraRequest;
 import br.com.campestre.campestreapi.domain.dto.ComprasDto;
 import br.com.campestre.campestreapi.domain.entities.Pedido;
 import br.com.campestre.campestreapi.domain.StatusPedido;
+import br.com.campestre.campestreapi.domain.entities.Produto;
 import br.com.campestre.campestreapi.domain.repository.PedidoRepositorio;
 import br.com.campestre.campestreapi.domain.repository.ProdutoRepositorio;
 import br.com.campestre.campestreapi.domain.service.CompraService;
@@ -56,7 +57,7 @@ public class CompraServiceImpl implements CompraService {
         for (var ficha : fichas) {
             Collection<Pedido> pedidos = this.pedidoRepositorio.findAllByNumeroFicha(ficha);
             var pedido = pedidos.stream().findFirst().get();
-            var produtos = pedidos.stream().map(Pedido::getProduto).collect(Collectors.toList());
+            var produtos = pedidos.stream().map(Pedido::getProduto).collect(Collectors.toList()).stream().map(Produto::toResponse).collect(Collectors.toList());
             listaCompras.add(new ComprasDto(pedido.getNomeCliente(), pedido.getDataHoraPedido(), pedido.getNumeroFicha(), pedido.getStatusPedido().toString(), produtos));
         }
 
@@ -68,7 +69,7 @@ public class CompraServiceImpl implements CompraService {
         this.pedidoRepositorio.atualizarStatusPedidoPeloNumeroFicha(statusPedido, numeroFicha);
         var pedidos = this.pedidoRepositorio.findAllByNumeroFicha(numeroFicha);
         var pedido = pedidos.stream().findFirst().get();
-        var produtos = pedidos.stream().map(Pedido::getProduto).collect(Collectors.toList());
+        var produtos = pedidos.stream().map(Pedido::getProduto).collect(Collectors.toList()).stream().map(Produto::toResponse).collect(Collectors.toList());
         new ComprasDto(pedido.getNomeCliente(), pedido.getDataHoraPedido(), pedido.getNumeroFicha(), pedido.getStatusPedido().toString(), produtos);
     }
 

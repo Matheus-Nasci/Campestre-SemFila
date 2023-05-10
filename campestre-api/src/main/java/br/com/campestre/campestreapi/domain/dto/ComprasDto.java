@@ -1,5 +1,6 @@
 package br.com.campestre.campestreapi.domain.dto;
 
+import br.com.campestre.campestreapi.controllers.response.ProdutoResponse;
 import br.com.campestre.campestreapi.domain.entities.Produto;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,9 +15,9 @@ public class ComprasDto {
     private LocalDateTime dataHoraPedido;
     private Integer numeroFicha;
     private String statusPedido;
-    private List<Produto> produtos;
+    private List<ProdutoResponse> produtos;
 
-    public ComprasDto(String nome, LocalDateTime dataHoraPedido, Integer numeroFicha, String statusPedido, List<Produto> produtos) {
+    public ComprasDto(String nome, LocalDateTime dataHoraPedido, Integer numeroFicha, String statusPedido, List<ProdutoResponse> produtos) {
         this.nome = nome;
         this.dataHoraPedido = dataHoraPedido;
         this.numeroFicha = numeroFicha;
