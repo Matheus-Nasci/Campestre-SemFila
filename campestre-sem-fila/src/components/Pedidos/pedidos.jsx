@@ -33,7 +33,6 @@ const Header = styled.div`
 const NumerosPedidos = styled.div`
     width: 100%;
     display: flex;
-    margin-top: -2%;
 `
 
 const PedidosPreparando = styled.div`

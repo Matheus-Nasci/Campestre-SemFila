@@ -18,7 +18,7 @@ import HeaderResumoCompra from "../header-resumo-compra/HeaderResumoCompra";
 import ItemResumoCompra from "../item-resumo-compra/ItemResumoCompra";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import api from "../api/api";
+import api from "../utils/api/api";
 
 const ComprasComponent = () => {
   const [nomeUsuario, setNomeUsuario] = useState("");
@@ -27,6 +27,9 @@ const ComprasComponent = () => {
   const [status, setStatus] = useState("idle");
 
   useEffect(() => {
+
+    document.title = "Compras";
+    
     if (status === "idle") {
       setStatus("loading");
       api
@@ -67,7 +70,10 @@ const ComprasComponent = () => {
 
     api.post("/pedidos", payload)
       .then(response => {
-        toast.success("Pedido efetuado com sucesso!")        
+        toast.success("Pedido efetuado com sucesso!") 
+        setTimeout(() => {
+          window.location.reload();
+        }, 3500);       
       }).catch(error => {
         console.log(error)
         toast.error("Pedido não efetuado.")

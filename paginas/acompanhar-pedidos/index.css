@@ -3,142 +3,216 @@
   padding: 0;
 }
 
+html,
 body {
-  width: 100%;
   height: 100%;
-  background-color: #f0f1f5;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  width: 100%;
+  font-family: "Open Sans";
 }
 
 .container {
-  width: 90%;
-  height: 100%;
   margin: 0 auto;
+  width: 98%;
+  height: 100%;
 }
 
 .header {
-  margin-top: 4%;
+  width: 100%;
+  height: 10%;
+  background-color: #000080;
 }
 
-h1 {
-  font-size: 40px;
-}
-
-.pedidos {
-  margin-top: 2%;
+.header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  text-align: center;
+  color: #ffffff;
   width: 100%;
   height: 100%;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+.content .pedido {
   display: flex;
   flex-direction: column;
+}
+
+.content .pedido .descricao {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5%;
+}
+
+.content .pedido .descricao .info-user {
+  width: 26%;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 3%;
 }
 
-.pedido {
-  margin-bottom: 3%;
-  background-color: white;
-  width: 90%;
-  height: 235px;
-  display: flex;
-  border-radius: 8px;
-  flex-direction: row;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-}
-
-.pedidos .pedido .info {
-  /* margin-top: 1%; */
-  height: 100%;
-  width: 20%;
-  display: flex;
-  flex-direction: column !important;
-  text-indent: 17px;
-}
-
-#nome-user {
-  margin-top: 4%;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 27px;
+#name-user {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  color: #000000;
 }
 
 #data-pedido {
-  margin-top: 5%;
-  font-size: 20px;
-  line-height: 16px;
+  margin-left: 1%;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+
   color: #7a8098;
 }
 
-#status-pedido {
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 14px;
-  text-indent: 0px;
-  padding: 1% 0;
-  color: #000000;
-  margin-top: 4%;
-  margin-left: 4%;
-  text-align: center;
-  background: #02ff0c;
-  border-radius: 4px;
-  width: 166px;
+.content .pedido .descricao .ficha {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
 }
 
 #title-ficha {
-  margin-top: 4%;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 14px;
+  font-weight: 300;
+  font-size: 28px;
+  color: #000000;
 }
 
-#numero-ficha {
-  margin-top: 7%;
-  font-weight: bold;
-  font-size: 90px;
-  line-height: 44px;
+#number-ficha {
+  font-weight: 700;
+  font-size: 50px;
+  color: #000000;
 }
 
-.pedidos .pedido .produto-pedido {
-  margin-right: 2%;
-  width: 20%;
-  margin-top: 11px;
+.content .pedido .descricao .info-pedido {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#status-pedido {
+  border-radius: 4px;
+  background-color: #ff9800;
+  padding: 1% 3%;
+
+  font-weight: 700;
+  font-size: 22px;
+
+  color: #ffffff;
+  margin-right: 4%;
+}
+
+#title-amount {
+  font-weight: 300;
+  font-size: 28px;
+  color: #000000;
+}
+
+#icon-cash {
+  margin-left: 3%;
+  margin-bottom: 2%;
+}
+
+#value-amount {
+  font-weight: 700;
+  font-size: 40px;
+
+  color: #000000;
+}
+
+.content .pedido .card-pedidos {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  height: 90%;
-  border-radius: 0px 8px 8px 0px;
-  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+  flex-wrap: wrap;
 }
 
-.produto-pedido .info-produto {
+.content .pedido .card-pedidos .card {
+  margin-top: 1%;
+  width: 20%;
+  height: 150px;
   display: flex;
-  align-items: start;
-  justify-content: center;
-  text-align: left;
+  flex-direction: row;
+  margin-left: 1%;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.content .pedido .card-pedidos .card .image {
+  border-radius: 10px 0px 0px 10px;
+  height: 100%;
+  width: 30%;
+  background-image: url("../comprar-produto/img/Copo_300ml.jpg");
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+}
+
+.content .pedido .card-pedidos .card .info-product {
+  height: 100%;
+  width: 70%;
+  display: flex;
   flex-direction: column;
-  width: 40%;
-  height: 100%;
+  justify-content: space-around;
+  gap: 50%;
 }
 
-.produto-pedido .info-produto span {
-  margin-left: 10%;
+.content .pedido .card-pedidos .card .info-product .part-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5%;
 }
 
-#nome-produto {
-  font-weight: bold;
-  font-size: 30px;
-}
-
-#tamanho-produto {
-  font-weight: 400;
+#nome-product {
+  font-weight: 700;
   font-size: 24px;
-  line-height: 19px;
+  color: #000000;
 }
 
-.pedido .produto-pedido .image {
-  width: 60%;
-  height: 100%;
+#price-product {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+
+  color: #000000;
 }
 
-.pedido .produto-pedido .image img {
-  height: 100%;
-  width: 100%;
-  border-radius: 0px 8px 8px 0px;
+.content .pedido .card-pedidos .card .info-product .part-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5%;
+}
+
+#length-product {
+  font-weight: 300;
+  font-size: 20px;
+  color: #000000;
+}
+
+#qtd-product {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #ff0000;
 }

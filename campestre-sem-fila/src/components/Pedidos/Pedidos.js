@@ -8,7 +8,7 @@ import {
 } from './pedidos';
 import Acai from '../../assets/images/acai.png';
 import NumeroFicha from '../../components/NumeroFicha/NumeroFicha';
-import api from '../api/api';
+import api from '../utils/api/api';
 
 function ListaPedidos() {
   const [pedidosProntos, setPedidosProntos] = useState({})
@@ -19,11 +19,11 @@ function ListaPedidos() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      api.get('/pedidos/prontos')
+      api.get('/pedidos/prontos?showImage=false')
         .then(response => setPedidosProntos(response.data))
         .catch(error => console.error(error));
 
-      api.get('/pedidos/preparando')
+      api.get('/pedidos/preparando?showImage=false')
         .then(response => setPedidosPreparando(response.data))
         .catch(error => console.error(error))
 
