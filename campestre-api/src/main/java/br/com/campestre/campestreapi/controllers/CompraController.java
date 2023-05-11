@@ -54,8 +54,9 @@ public class CompraController {
         if (listaCompras.isEmpty())
             return ResponseEntity.status(204).build();
 
-        return ResponseEntity.status(200).body(new SingleResponse<>(listaCompras.stream()
-                .map(compra -> compra.toAcompanharPedido(showImage)).collect(Collectors.toList())));
+        var listaAcompanharPedidos = listaCompras.stream().map(compra -> compra.toAcompanharPedido(showImage)).collect(Collectors.toList());
+
+        return ResponseEntity.status(200).body(new SingleResponse<>(listaAcompanharPedidos));
     }
 
     @GetMapping("/prontos")

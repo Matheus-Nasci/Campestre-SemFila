@@ -20,6 +20,7 @@ public class ComprasDto {
     private Integer numeroFicha;
     private String statusPedido;
     private List<ProdutoResponse> produtos;
+    private Double valorTotal;
 
     public ComprasDto(String nome, LocalDateTime dataHoraPedido, Integer numeroFicha, String statusPedido, List<ProdutoResponse> produtos) {
         this.nome = nome;
@@ -39,7 +40,7 @@ public class ComprasDto {
         Map<String, Integer> produtoQuantidadeMap = new HashMap<>();
 
         for (ProdutoResponse produto : this.produtos) {
-            String produtoKey = produto.getId() + "_" + produto.getNome() + "_" + produto.getValor() + "_" + produto.getTamanho();
+            String produtoKey = produto.getId() + "_" + produto.getNome() + "_" + produto.getValor() + "_" + produto.getTamanho() + "_" + produto.getImagem();
 
             if (produtoQuantidadeMap.containsKey(produtoKey)) {
                 int quantidade = produtoQuantidadeMap.get(produtoKey);
@@ -58,8 +59,10 @@ public class ComprasDto {
             String nome = produtoKeyParts[1];
             double valor = Double.parseDouble(produtoKeyParts[2]);
             String tamanho = produtoKeyParts[3];
+            String imagem = produtoKeyParts[4];
 
-            ProdutoResponse produto = new ProdutoResponse(new Produto(id, nome, valor, tamanho), true);
+
+            ProdutoResponse produto = new ProdutoResponse(new Produto(id, nome, valor, tamanho), showImage, imagem);
             DetalhesPedido detalhes = new DetalhesPedido(produto, quantidade);
             detalhesPedido.add(detalhes);
         }

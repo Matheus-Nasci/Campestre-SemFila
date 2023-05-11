@@ -37,7 +37,7 @@ public class ProdutoController {
     }
 
     @GetMapping
-    public ResponseEntity listarProdutos(@RequestParam("showImage") Boolean showImage) {
+    public ResponseEntity listarProdutos(@RequestParam(value = "showImage", required = false) Boolean showImage) {
         var listaProdutos = this.produtoService.listar();
 
         if (listaProdutos.isEmpty())

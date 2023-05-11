@@ -25,4 +25,12 @@ public class ProdutoResponse {
         this.tamanho = produto.getTamanho();
         if (showImage != null && showImage) this.imagem = "data:image/png;base64," + Base64.encodeBase64String(produto.getImagem());
     }
+
+    public ProdutoResponse(Produto produto, Boolean showImage, String imagem) {
+        this.id = produto.getId();
+        this.nome = produto.getNome();
+        this.valor = produto.getValor();
+        this.tamanho = produto.getTamanho();
+        if (showImage != null && showImage) this.imagem = imagem;
+    }
 }
