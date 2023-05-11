@@ -1,5 +1,10 @@
 package br.com.campestre.campestreapi.framework;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class SingleResponse<T> {
     public T data;
 
