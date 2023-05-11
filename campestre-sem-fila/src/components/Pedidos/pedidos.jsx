@@ -24,6 +24,7 @@ const FotoAperetiva = styled.div`
 `
 
 const Header = styled.div`
+    margin-top: 1%;
     h1 {
         text-align: center;
         font-weight: 900;
