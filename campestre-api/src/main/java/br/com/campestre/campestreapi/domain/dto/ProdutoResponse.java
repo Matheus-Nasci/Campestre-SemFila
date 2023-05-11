@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProdutoDto {
+public class ProdutoResponse {
     private int idProduto;
 }

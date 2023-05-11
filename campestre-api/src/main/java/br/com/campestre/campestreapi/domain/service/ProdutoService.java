@@ -1,7 +1,6 @@
 package br.com.campestre.campestreapi.domain.service;
 
 import br.com.campestre.campestreapi.controllers.requests.ProdutoRequest;
-import br.com.campestre.campestreapi.domain.dto.ProdutoDto;
 import br.com.campestre.campestreapi.domain.entities.Produto;
 import org.springframework.web.multipart.MultipartFile;
 

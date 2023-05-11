@@ -8,6 +8,6 @@ import java.util.Collection;
 
 public interface CompraService {
     void realizar(CompraRequest compraRequest);
-    Collection<ComprasDto> listar(StatusPedido statusPedido);
+    Collection<ComprasDto> listar(StatusPedido statusPedido, Boolean showImage);
     void atualizarPedido(StatusPedido statusPedido, Integer numeroFicha);
 }

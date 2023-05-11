@@ -3,11 +3,15 @@ package br.com.campestre.campestreapi.controllers;
 import br.com.campestre.campestreapi.controllers.requests.AtualizarStatusPedido;
 import br.com.campestre.campestreapi.controllers.requests.CompraRequest;
 import br.com.campestre.campestreapi.domain.StatusPedido;
+import br.com.campestre.campestreapi.domain.dto.ComprasDto;
 import br.com.campestre.campestreapi.domain.service.CompraService;
 import br.com.campestre.campestreapi.framework.SingleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/pedidos")
@@ -27,8 +31,8 @@ public class CompraController {
     }
 
     @GetMapping
-    public ResponseEntity listarCompras() {
-        var listaCompras = this.compraService.listar(null);
+    public ResponseEntity listarCompras(@RequestParam("showImage") Boolean showImage) {
+        var listaCompras = this.compraService.listar(null, showImage);
         if (listaCompras.isEmpty())
             return ResponseEntity.status(204).build();
 
@@ -36,17 +40,27 @@ public class CompraController {
     }
 
     @GetMapping("/preparando")
-    public ResponseEntity listarPedidosEmPreparo() {
-        var listaCompras = this.compraService.listar(StatusPedido.PREPARANDO);
+    public ResponseEntity listarPedidosEmPreparo(@RequestParam("showImage") Boolean showImage) {
+        var listaCompras = this.compraService.listar(StatusPedido.PREPARANDO, showImage);
         if (listaCompras.isEmpty())
             return ResponseEntity.status(204).build();
 
         return ResponseEntity.status(200).body(new SingleResponse<>(listaCompras));
     }
 
+    @GetMapping("/acompanhar")
+    public ResponseEntity listarPedidosEmPreparoV2(@RequestParam("showImage") Boolean showImage) {
+        var listaCompras = this.compraService.listar(StatusPedido.PREPARANDO, showImage);
+        if (listaCompras.isEmpty())
+            return ResponseEntity.status(204).build();
+
+        return ResponseEntity.status(200).body(new SingleResponse<>(listaCompras.stream()
+                .map(compra -> compra.toAcompanharPedido(showImage)).collect(Collectors.toList())));
+    }
+
     @GetMapping("/prontos")
-    public ResponseEntity listarPedidosProntos() {
-        var listaCompras = this.compraService.listar(StatusPedido.PRONTO);
+    public ResponseEntity listarPedidosProntos(@RequestParam("showImage") Boolean showImage) {
+        var listaCompras = this.compraService.listar(StatusPedido.PRONTO, showImage);
         if (listaCompras.isEmpty())
             return ResponseEntity.status(204).build();
 

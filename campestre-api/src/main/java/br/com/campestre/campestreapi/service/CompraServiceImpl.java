@@ -8,12 +8,14 @@ import br.com.campestre.campestreapi.domain.entities.Produto;
 import br.com.campestre.campestreapi.domain.repository.PedidoRepositorio;
 import br.com.campestre.campestreapi.domain.repository.ProdutoRepositorio;
 import br.com.campestre.campestreapi.domain.service.CompraService;
+import org.hibernate.cfg.NotYetImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -43,7 +45,7 @@ public class CompraServiceImpl implements CompraService {
     }
 
     @Override
-    public Collection<ComprasDto> listar(StatusPedido statusPedido) {
+    public Collection<ComprasDto> listar(StatusPedido statusPedido, Boolean showImage) {
 
         Collection<Integer> fichas;
 
@@ -57,7 +59,9 @@ public class CompraServiceImpl implements CompraService {
         for (var ficha : fichas) {
             Collection<Pedido> pedidos = this.pedidoRepositorio.findAllByNumeroFicha(ficha);
             var pedido = pedidos.stream().findFirst().get();
-            var produtos = pedidos.stream().map(Pedido::getProduto).collect(Collectors.toList()).stream().map(Produto::toResponse).collect(Collectors.toList());
+            var produtos = pedidos.stream().map(Pedido::getProduto)
+                    .collect(Collectors.toList()).stream().map(produto -> produto.toResponse(showImage))
+                    .collect(Collectors.toList());
             listaCompras.add(new ComprasDto(pedido.getNomeCliente(), pedido.getDataHoraPedido(), pedido.getNumeroFicha(), pedido.getStatusPedido().toString(), produtos));
         }
 

@@ -26,13 +26,24 @@ public class Produto {
 
     public Produto() {}
 
+    public Produto(int id, String nome, Double valor, String tamanho) {
+        this.id = id;
+        this.nome = nome;
+        this.valor = valor;
+        this.tamanho = tamanho;
+    }
+
     public Produto(String nome, Double valor, String tamanho) {
         this.nome = nome;
         this.valor = valor;
         this.tamanho = tamanho;
     }
 
+    public ProdutoResponse toResponse(Boolean showImage) {
+        return new ProdutoResponse(this, showImage);
+    }
+
     public ProdutoResponse toResponse() {
-        return new ProdutoResponse(this);
+        return new ProdutoResponse(this, false);
     }
 }
