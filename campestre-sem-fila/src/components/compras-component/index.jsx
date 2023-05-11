@@ -53,6 +53,7 @@ const CardProdutos = styled.div`
   display: flex;
   flex-direction: row;
   margin-left: 3%;
+  flex-wrap: wrap;
 `;
 
 const ResumoCompras = styled.div`

@@ -11,6 +11,7 @@ const Card = styled.div`
   background-color: white;
   transition: transform 0.2s ease-in-out;
   text-align: center;
+  margin-bottom: 15%;
   span {
     font-style: normal;
     font-weight: 400;
