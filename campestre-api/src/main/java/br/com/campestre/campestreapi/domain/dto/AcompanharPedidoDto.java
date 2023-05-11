@@ -16,6 +16,7 @@ public class AcompanharPedidoDto {
     private LocalDateTime dataHoraPedido;
     private Integer numeroFicha;
     private String statusPedido;
+    private Double valorTotal;
     private List<DetalhesPedido> detalhesPedido;
 
 }

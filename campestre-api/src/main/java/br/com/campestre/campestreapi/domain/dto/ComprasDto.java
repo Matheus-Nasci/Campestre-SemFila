@@ -12,8 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Getter
-@Setter
 public class ComprasDto {
     private String nome;
     private LocalDateTime dataHoraPedido;
@@ -39,6 +37,13 @@ public class ComprasDto {
         List<DetalhesPedido> detalhesPedido = new ArrayList<>();
         Map<String, Integer> produtoQuantidadeMap = new HashMap<>();
 
+        Double valor = 0.0;
+        for (var produto : this.produtos) {
+            valor += produto.getValor();
+        }
+
+        acompanharPedido.setValorTotal(valor);
+
         for (ProdutoResponse produto : this.produtos) {
             String produtoKey = produto.getId() + "_" + produto.getNome() + "_" + produto.getValor() + "_" + produto.getTamanho() + "_" + produto.getImagem();
 
@@ -57,12 +62,12 @@ public class ComprasDto {
             String[] produtoKeyParts = produtoKey.split("_");
             int id = Integer.parseInt(produtoKeyParts[0]);
             String nome = produtoKeyParts[1];
-            double valor = Double.parseDouble(produtoKeyParts[2]);
+            double valorProduto = Double.parseDouble(produtoKeyParts[2]);
             String tamanho = produtoKeyParts[3];
             String imagem = produtoKeyParts[4];
 
 
-            ProdutoResponse produto = new ProdutoResponse(new Produto(id, nome, valor, tamanho), showImage, imagem);
+            ProdutoResponse produto = new ProdutoResponse(new Produto(id, nome, valorProduto, tamanho), showImage, imagem);
             DetalhesPedido detalhes = new DetalhesPedido(produto, quantidade);
             detalhesPedido.add(detalhes);
         }
