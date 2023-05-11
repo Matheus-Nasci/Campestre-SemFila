@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import FilaPedidos from "./pages/FilaPedidos/FilaPedidos";
 import Compras from "./pages/compras/Compras";
-import AcompanharPedidos from "./pages/acompanharPedidos/AcompanharPedidos";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <Switch>
         <Route path="/fila-pedidos" component={FilaPedidos} />
         <Route path="/compras" component={Compras} />
-        <Route path="/acompanhar-pedidos" component={AcompanharPedidos} />
       </Switch>
     </Router>
   );
