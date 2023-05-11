@@ -30,7 +30,7 @@ const ComprasComponent = () => {
     if (status === "idle") {
       setStatus("loading");
       api
-        .get("/produtos")
+        .get("/produtos?showImage=true")
         .then((response) => {
           setStatus("loaded");
           setListaProdutos(response.data);
@@ -42,10 +42,15 @@ const ComprasComponent = () => {
 
   const handleSubmit = (event) => {
 
+    if (nomeUsuario.trim() === "") {
+      toast.error("Por favor, preencha o nome do cliente.");
+      return;
+    }
+
     let arrayProdutos = []
 
     Object.values(itens).forEach((item) => {
-      for (let i = 0; i <= item.quantidade; i++) {
+      for (let i = 0; i < item.quantidade; i++) {
         arrayProdutos.push({
           idProduto: item.id
         })
@@ -58,8 +63,6 @@ const ComprasComponent = () => {
         produtos: arrayProdutos
       }
     }
-
-    console.log(payload)
 
 
     api.post("/pedidos", payload)
