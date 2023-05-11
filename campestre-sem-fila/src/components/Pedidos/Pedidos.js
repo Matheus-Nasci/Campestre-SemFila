@@ -18,6 +18,9 @@ function ListaPedidos() {
   const [listaPedidosPreparando, setListaPedidosPreparando] = useState();
 
   useEffect(() => {
+
+    document.title = "Fila Pedidos"
+
     const intervalId = setInterval(() => {
       api.get('/pedidos/prontos?showImage=false')
         .then(response => setPedidosProntos(response.data))
