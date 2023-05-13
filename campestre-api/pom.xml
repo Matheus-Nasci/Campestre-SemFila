@@ -61,6 +61,13 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.15</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.javapos/javapos -->
+		<dependency>
+			<groupId>org.javapos</groupId>
+			<artifactId>javapos</artifactId>
+			<version>1.14.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

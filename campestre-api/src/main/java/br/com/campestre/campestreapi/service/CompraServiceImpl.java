@@ -8,14 +8,13 @@ import br.com.campestre.campestreapi.domain.entities.Produto;
 import br.com.campestre.campestreapi.domain.repository.PedidoRepositorio;
 import br.com.campestre.campestreapi.domain.repository.ProdutoRepositorio;
 import br.com.campestre.campestreapi.domain.service.CompraService;
-import org.hibernate.cfg.NotYetImplementedException;
+import br.com.campestre.campestreapi.domain.service.NotaFiscalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -24,21 +23,26 @@ import java.util.stream.Collectors;
 public class CompraServiceImpl implements CompraService {
     private final PedidoRepositorio pedidoRepositorio;
     private final ProdutoRepositorio produtoRepositorio;
+    private final NotaFiscalService notaFiscalService;
 
     @Autowired
-    public CompraServiceImpl(PedidoRepositorio pedidoRepositorio, ProdutoRepositorio produtoRepositorio) {
+    public CompraServiceImpl(PedidoRepositorio pedidoRepositorio, ProdutoRepositorio produtoRepositorio, NotaFiscalService notaFiscalService) {
         this.pedidoRepositorio = pedidoRepositorio;
         this.produtoRepositorio = produtoRepositorio;
+        this.notaFiscalService = notaFiscalService;
     }
 
     @Override
     public void realizar(CompraRequest compraRequest) {
-        //TODO implementar chamada ao serviço de emissão de nota não fiscal síncrono
-        CompletableFuture<Void> completableFuture = CompletableFuture
-                .runAsync(() -> this.realizarCompra(compraRequest));
+        CompletableFuture<Void> imprimirNotaNaoFiscalAsync = CompletableFuture
+                .runAsync(() -> this.notaFiscalService.imprimir(compraRequest.getPedido()));
+
+//        CompletableFuture<Void> completableFuture = CompletableFuture
+//                .runAsync(() -> this.realizarCompra(compraRequest));
 
         try {
-            completableFuture.get();
+//            completableFuture.get();
+            imprimirNotaNaoFiscalAsync.get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
