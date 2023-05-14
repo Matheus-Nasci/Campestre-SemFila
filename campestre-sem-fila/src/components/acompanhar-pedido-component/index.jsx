@@ -10,6 +10,9 @@ const Pedido = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
+  @media (max-width: 768px) {
+   padding-bottom:15%;
+  }
 `;
 
 const CardPedidos = styled.div`
