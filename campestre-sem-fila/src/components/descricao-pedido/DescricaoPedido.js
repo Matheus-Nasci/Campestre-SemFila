@@ -33,13 +33,13 @@ const DescricaoPedido = ({
         <DataPedido>{dataFormatada}</DataPedido>
       </InfoUser>
       <Ficha>
-        <TituloFicha>FiCHA:</TituloFicha>
+        <TituloFicha>FICHA:</TituloFicha>
         <NumeroFicha>{numeroFicha}</NumeroFicha>
       </Ficha>
       <InfoPedido>
         <StatusPedido>{statusPedido}</StatusPedido>
         <TitleAmount>Total:</TitleAmount>
-        <IconCash>$</IconCash>
+        <IconCash>R$</IconCash>
         <ValueAmount>{Number(valorTotal).toFixed(2)}</ValueAmount>
       </InfoPedido>
     </Descricao>
