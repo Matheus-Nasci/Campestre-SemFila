@@ -16,3 +16,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
+backend:
+  api-nota-fiscal:
+    uri: http://localhost:8080/api/nota-nao-fiscal

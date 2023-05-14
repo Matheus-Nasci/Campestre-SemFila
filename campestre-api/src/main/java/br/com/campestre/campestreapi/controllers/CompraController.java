@@ -7,7 +7,6 @@ import br.com.campestre.campestreapi.domain.dto.ComprasDto;
 import br.com.campestre.campestreapi.domain.service.CompraService;
 import br.com.campestre.campestreapi.framework.SingleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
