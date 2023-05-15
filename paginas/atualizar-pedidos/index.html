@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtualizarPedido</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pedidos">
+        <div class="header">
+            <h1>Pedidos</h1>
+            <select name="status-select" id="tipos-status">
+                <option value="PREPARANDO">PREPARANDO</option>
+                <option value="PRONTO">PRONTO</option>
+            </select>
+        </div>
+        <div class="descricoes">
+            <div class="descricao">
+                <div class="parte-one">
+                    <span id="nome-usuario"></span>
+                    <span id="data"></span>
+                    <span id="status"></span>
+                </div>
+                <div class="parte-dois">
+                    <span id="titulo-ficha">Nº</span>
+                    <span id="numero-ficha"></span>
+                    <span id="titulo-valor">Total:</span>
+                    <span id="cifrao">R$</span>
+                    <span id="valor-total">20,00</span>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
