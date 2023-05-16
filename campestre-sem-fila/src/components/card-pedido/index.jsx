@@ -35,7 +35,7 @@ const InfoProduct = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 50%;
+  gap: 39%;
 
   @media (max-width: 768px) {
     width: 80%;

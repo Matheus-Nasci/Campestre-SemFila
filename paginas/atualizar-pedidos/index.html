@@ -5,32 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AtualizarPedido</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
       <div class="pedidos">
         <div class="header">
-            <h1>Pedidos</h1>
-            <select name="status-select" id="tipos-status">
-                <option value="PREPARANDO">PREPARANDO</option>
-                <option value="PRONTO">PRONTO</option>
-            </select>
+          <h1>Pedidos</h1>
+          <select name="status-select" id="tipos-status">
+            <option value="PREPARANDO">PREPARANDO</option>
+            <option value="PRONTO">PRONTO</option>
+          </select>
         </div>
-        <div class="descricoes">
-            <div class="descricao">
-                <div class="parte-one">
-                    <span id="nome-usuario"></span>
-                    <span id="data"></span>
-                    <span id="status"></span>
-                </div>
-                <div class="parte-dois">
-                    <span id="titulo-ficha">Nº</span>
-                    <span id="numero-ficha"></span>
-                    <span id="titulo-valor">Total:</span>
-                    <span id="cifrao">R$</span>
-                    <span id="valor-total">20,00</span>
-                </div>
+        <div class="content">
+          <div class="pedido">
+            <div class="parte-one">
+              <span id="nome-usuario">José Paulo</span>
+              <span id="data">22:19 13/05</span>
+              <span id="status">PREPARANDO</span>
             </div>
+            <div class="parte-dois">
+              <div class="ficha">
+                <span id="titulo-ficha">Nº</span>
+                <span id="numero-ficha">20</span>
+              </div>
+              <div class="amount">
+                <span id="titulo-valor">Total:</span>
+                <span id="cifrao">R$</span>
+                <span id="valor-total">20,00</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

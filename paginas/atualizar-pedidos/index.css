@@ -7,4 +7,120 @@ html,
 body {
   width: 100%;
   height: 100%;
+  font-family: "Open Sans", "Courier New", Courier, monospace;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.pedidos {
+  height: 100%;
+  width: 100%;
+}
+
+.pedidos .header {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: #000080;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
+.pedidos .header h1 {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.pedidos .header select {
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .pedido {
+  margin-top: 2%;
+  height: 15%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 10px 100px 53px rgba(0, 0, 0, 0.1);
+}
+
+.content .pedido .parte-one {
+  margin-top: 1%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: 1%;
+  align-items: center;
+}
+
+#nome-usuario {
+  margin-left: 2%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#data {
+  font-style: normal;
+  font-weight: 300;
+
+  color: #7a8098;
+}
+
+#status {
+  margin-right: 1%;
+  border-radius: 4px;
+  background-color: #ff9800;
+  padding: 1% 1%;
+
+  font-weight: 700;
+  font-size: 14px;
+
+  color: #ffffff;
+}
+
+.parte-dois {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1%;
+}
+
+.parte-dois .ficha {
+  display: flex;
+  align-items: center;
+}
+
+#titulo-ficha {
+  margin-bottom: 2%;
+}
+
+#numero-ficha {
+  font-weight: 700;
+  font-size: 30px;
+
+  color: #000000;
 }
