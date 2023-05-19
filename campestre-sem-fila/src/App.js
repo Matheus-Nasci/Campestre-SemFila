@@ -9,6 +9,7 @@ import FilaPedidos from "./pages/FilaPedidos/FilaPedidos";
 import Compras from "./pages/compras/Compras";
 import AcompanharPedidos from "./pages/AcompanharPedidos/AcompanharPedidos";
 import AdicionarProdutoPage from "./pages/AdicionarProduto/AdicionarProdutoPage";
+import AtualizarStatusProduto from "./pages/AtualizarStatusProduto/AtualizarStatusProduto";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/compras" component={Compras} />
         <Route path="/acompanhar-pedidos" component={AcompanharPedidos} />
         <Route path="/adicionar-produto" component={AdicionarProdutoPage} />
+        <Route path="/atualizar-produto" component={AtualizarStatusProduto} />
       </Switch>
     </Router>
   );
