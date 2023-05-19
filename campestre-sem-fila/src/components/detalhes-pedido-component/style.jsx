@@ -12,7 +12,7 @@ const HeaderDiv = styled.div`
 
 const PedidosDiv = styled.div`
   width: 100%;
-  height: 74%;
+  height: 75%;
   background-color: #f8f8ff;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ const PedidoDiv = styled.div`
 
 const ImageDiv = styled.div`
   height: 100%;
-  width: 30%;
+  width: 20%;
   background-image: url(${(props) => props.image});
   background-size: cover;
   background-position: center 10%;
@@ -61,24 +61,22 @@ const InfoProdutoDiv = styled.div`
 
 const NomeProdutoSpan = styled.span`
   font-weight: bold;
-  font-size: 24px;
+  font-size: 16px;
 `;
 
 const TamanhoProdutoSpan = styled.span`
-  font-size: 18px;
-  margin-bottom: 30%;
+  font-size: 14px;
 `;
 
 const ValorProdutoSpan = styled.span`
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
 `;
 
 const QuantidadeDiv = styled.div`
   margin-top: 4%;
-  margin-right: 4%;
   span {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
   }
 `;
@@ -87,7 +85,7 @@ const FooterDiv = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 14%;
+  height: 12%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -101,17 +99,17 @@ const ValoTotalDiv = styled.div`
 `;
 
 const TotalTituloSpan = styled.span`
-  font-size: 24px;
+  font-size: 21px;
 `;
 
 const ButtonDiv = styled.div`
-  height: 100%;
+  height: 78%;
   background-color: ${props => props.bgColor};
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
 `;
