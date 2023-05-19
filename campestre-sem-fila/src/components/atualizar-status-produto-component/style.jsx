@@ -17,7 +17,7 @@ const HeaderDiv = styled.div`
   height: 12%;
   background-color: #000080;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 2%;
   h1 {
     font-weight: 700;
@@ -42,7 +42,7 @@ const StatusSelect = styled.select`
 
 const ContentDiv = styled.div`
   width: 100%;
-  height: 100%;
+  height: 86%;
   display: flex;
   padding-bottom: 1000%;
   flex-direction: column;
@@ -90,8 +90,8 @@ const DataSpan = styled.span`
 const StatusSpan = styled.span`
   margin-right: 1%;
   border-radius: 4px;
-  background-color: #ff9800;
-  padding: 1% 1%;
+  background-color: ${props => props.status === "PREPARANDO" ? "#ff9800" : "#228B22"};
+  padding: 1% 3%;
 
   font-weight: 700;
   font-size: 14px;

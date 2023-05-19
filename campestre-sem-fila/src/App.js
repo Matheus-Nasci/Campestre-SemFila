@@ -10,6 +10,7 @@ import Compras from "./pages/compras/Compras";
 import AcompanharPedidos from "./pages/AcompanharPedidos/AcompanharPedidos";
 import AdicionarProdutoPage from "./pages/AdicionarProduto/AdicionarProdutoPage";
 import AtualizarStatusProduto from "./pages/AtualizarStatusProduto/AtualizarStatusProduto";
+import DetalhesPedidoComponent from "./components/detalhes-pedido-component/detalhesPedidoComponent";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         <Route path="/acompanhar-pedidos" component={AcompanharPedidos} />
         <Route path="/adicionar-produto" component={AdicionarProdutoPage} />
         <Route path="/atualizar-produto" component={AtualizarStatusProduto} />
+        <Route path="/detalhes-pedido">
+          <DetalhesPedidoComponent />
+        </Route>
       </Switch>
     </Router>
   );
