@@ -56,7 +56,7 @@ const AcompanharPedidosComponent = () => {
           })}
         </Pedido>
       ) : (
-        <div>Nenhum pedido encontrado.</div>
+        <div>Carregando...</div>
       )}
     </Content>
   );
