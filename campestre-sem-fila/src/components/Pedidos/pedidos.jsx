@@ -61,7 +61,7 @@ const TitlePedidoPronto = styled.h1`
 `;
 
 const ListaNumerosPreparo = styled.ul`
-    width: 50%;
+    width: 75%;
     column-count: 2;
     list-style: none;
 `;

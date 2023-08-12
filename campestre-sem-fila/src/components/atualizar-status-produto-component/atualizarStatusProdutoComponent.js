@@ -96,7 +96,7 @@ const AtualizarStatusComponent = () => {
           </StatusSelect>
         </HeaderDiv>
         <ContentDiv>
-          {pedidos.length > 0 ? (
+          {pedidos?.length > 0 ? (
             pedidos.map((pedido) => {
               return (
                 <PedidoDiv onClick={() => handlePedidoClick(pedido)}>
