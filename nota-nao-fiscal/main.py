@@ -1,6 +1,5 @@
 from escpos.printer import Usb
 
-
 def imprimir_cupom_fiscal(dados):
     printer = Usb(0x28e9, 0x0289, 0, 0x81, 0x03)
     # Definir o tamanho do papel

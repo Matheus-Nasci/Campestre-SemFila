@@ -3,7 +3,8 @@ from escpos.printer import Usb
 from main import imprimir_cupom_fiscal
 
 app = Flask(__name__)
-printer = Usb(0x28e9, 0x0289, 0, 0x81, 0x03)
+
+printer = Usb(0x28e9, 0x0289, 0, 0x81, 0x03) # codigo da impressora
 
 # Rota para retornar um JSON
 @app.route('/api/json', methods=['GET'])
