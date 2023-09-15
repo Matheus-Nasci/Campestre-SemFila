@@ -5,7 +5,7 @@ import {
   Content,
   PedidosPreparando,
   PedidosProntos, NumerosPedidos, FotoAperetiva, Header, PedidosComponent
-} from './pedidos';
+} from './pedidos.jsx';
 import Acai from '../../assets/images/acai.png';
 import NumeroFicha from '../../components/NumeroFicha/NumeroFicha';
 import api from '../utils/api/api';

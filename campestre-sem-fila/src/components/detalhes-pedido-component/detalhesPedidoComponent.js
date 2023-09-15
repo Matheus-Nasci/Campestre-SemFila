@@ -19,6 +19,7 @@ import api from "../utils/api/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
+import { Content } from "../acompanhar-pedido-component";
 
 const DetalhesPedidoComponent = () => {
   const history = useHistory();
@@ -49,7 +50,7 @@ const DetalhesPedidoComponent = () => {
   };
 
   const pedido = JSON.parse(localStorage.getItem("pedidoSelecionado"));
-  const [statusPedido, setStatusPedido] = useState(pedido.statusPedido);
+  const [statusPedido, setStatusPedido] = useState(pedido?.statusPedido);
   const [headerColor, setHeaderColor] = useState(getHeaderColor(statusPedido));
   const [textoBotao, setTextoBotao] = useState(getTextoBotao(statusPedido));
 
@@ -72,8 +73,8 @@ const DetalhesPedidoComponent = () => {
       statusPedido === "PREPARANDO"
         ? "PRONTO"
         : statusPedido === "PRONTO"
-        ? "ENTREGUE"
-        : "ENTREGUE";
+          ? "ENTREGUE"
+          : "ENTREGUE";
 
     const requestData = {
       numeroFicha: pedido.numeroFicha,
@@ -103,41 +104,48 @@ const DetalhesPedidoComponent = () => {
     <>
       <HeaderDiv statusPedido={headerColor}>
         <h1>
-          {pedido.nome} | {pedido.numeroFicha}
+          {pedido?.nome} | {pedido?.numeroFicha}
         </h1>
       </HeaderDiv>
-      <PedidosDiv>
-        {pedido["detalhesPedido"].map((detalhe) => {
-          return (
-            <>
-              <PedidoDiv>
-                <ImageDiv image={detalhe.produtoResponse.imagem}></ImageDiv>
-                <ConteudoPedidoDiv>
-                  <InfoProdutoDiv>
-                    <NomeProdutoSpan>
-                      {detalhe.produtoResponse.nome}
-                    </NomeProdutoSpan>
-                    <TamanhoProdutoSpan>
-                      {detalhe.produtoResponse.tamanho}
-                    </TamanhoProdutoSpan>
-                    <ValorProdutoSpan>
-                      R$ {detalhe.produtoResponse.valor.toFixed(2)}
-                    </ValorProdutoSpan>
-                  </InfoProdutoDiv>
-                  <QuantidadeDiv>
-                    <span>Qtd: {detalhe.quantidade}</span>
-                  </QuantidadeDiv>
-                </ConteudoPedidoDiv>
-              </PedidoDiv>
-            </>
-          );
-        })}
-      </PedidosDiv>
+      <Content>
+        {pedido && pedido["detalhesPedido"] && pedido["detalhesPedido"].length > 0 ? (
+          <PedidosDiv>
+            {pedido["detalhesPedido"].map((detalhe) => {
+              return (
+                <>
+                  <PedidoDiv>
+                    <ImageDiv image={detalhe.produtoResponse.imagem}></ImageDiv>
+                    <ConteudoPedidoDiv>
+                      <InfoProdutoDiv>
+                        <NomeProdutoSpan>
+                          {detalhe.produtoResponse.nome}
+                        </NomeProdutoSpan>
+                        <TamanhoProdutoSpan>
+                          {detalhe.produtoResponse.tamanho}
+                        </TamanhoProdutoSpan>
+                        <ValorProdutoSpan>
+                          R$ {detalhe.produtoResponse.valor.toFixed(2)}
+                        </ValorProdutoSpan>
+                      </InfoProdutoDiv>
+                      <QuantidadeDiv>
+                        <span>Qtd: {detalhe.quantidade}</span>
+                      </QuantidadeDiv>
+                    </ConteudoPedidoDiv>
+                  </PedidoDiv>
+                </>
+              );
+            })
+            }
+          </PedidosDiv>
+        ) : (
+          <div>Carrengando...</div>
+        )}
+      </Content>
       <ToastContainer />
       <FooterDiv>
         <ValoTotalDiv>
           <TotalTituloSpan>Total:</TotalTituloSpan>
-          <ValorProdutoSpan>R$ {pedido.valorTotal.toFixed(2)}</ValorProdutoSpan>
+          <ValorProdutoSpan>R$ {pedido ? pedido.valorTotal.toFixed(2) : undefined}</ValorProdutoSpan>
         </ValoTotalDiv>
         <ButtonDiv onClick={handleStatusChange} bgColor={headerColor}>{textoBotao}</ButtonDiv>
       </FooterDiv>
