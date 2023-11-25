@@ -11,11 +11,13 @@ import AcompanharPedidos from "./pages/AcompanharPedidos/AcompanharPedidos";
 import AdicionarProdutoPage from "./pages/AdicionarProduto/AdicionarProdutoPage";
 import AtualizarStatusProduto from "./pages/AtualizarStatusProduto/AtualizarStatusProduto";
 import DetalhesPedidoComponent from "./components/detalhes-pedido-component/detalhesPedidoComponent";
+import HomePage from "./components/home-page/HomePage";
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/"  component={HomePage} />
         <Route path="/fila-pedidos" component={FilaPedidos} />
         <Route path="/compras" component={Compras} />
         <Route path="/acompanhar-pedidos" component={AcompanharPedidos} />

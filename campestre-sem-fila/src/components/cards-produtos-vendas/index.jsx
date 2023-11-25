@@ -19,7 +19,7 @@ const Card = styled.div`
     line-height: 25px;
   }
   :hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
     transition: transform 0.2s ease-in-out;
   }
 `;
