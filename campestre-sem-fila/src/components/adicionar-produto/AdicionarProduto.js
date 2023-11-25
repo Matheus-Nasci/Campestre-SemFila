@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Container } from ".";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../utils/api/api";
 
@@ -52,8 +52,11 @@ const AdicionarProduto = () => {
             "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
         },
       });
-      toast.success("Produto cadastrado com sucesso!")
+
       console.log(response.data);
+      toast.success("Produto cadastrado com sucesso!", {
+        autoClose: 2000,
+      })
     } catch (error) {
       toast.error(error)
       console.error(error);
